@@ -1,6 +1,6 @@
 import React from 'react'
 
 
-export default function() {
+export default () => {
     return <h1> Primeiro Componente! </h1>
 }
