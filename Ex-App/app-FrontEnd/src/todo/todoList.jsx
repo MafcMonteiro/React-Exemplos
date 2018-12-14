@@ -1,5 +1,6 @@
 import React from 'react'
 import IconButton from '../template/iconButton'
+import iconButton from '../template/iconButton';
 
 export default props => {
 
@@ -9,10 +10,15 @@ export default props => {
 
         return list.map(todo => (
             <tr key={todo._id}>
-                <td>{todo.description}</td>
+                <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
                 <td>
+                    <IconButton style ='success' icon='check'
+                        onClick={() => props.handleMarkAsDone(todo)}></IconButton>
+                    <IconButton style ='warning' icon='undo'
+                        onClick={() => props.handleMarkasPending(todo)}></IconButton>
                     <IconButton style ='danger' icon='trash-o'
-                        onClick={() => props.handleRemove(todo)}></IconButton></td>
+                        onClick={() => props.handleRemove(todo)}></IconButton>
+                </td>
             </tr>
 
         ))
